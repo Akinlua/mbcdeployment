@@ -28,7 +28,7 @@ show_usage() {
     echo "  --help                  Show this help message"
     echo ""
     echo "Example:"
-    echo "  curl -sSL https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/install.sh | bash -s -- --license-key YOUR_LICENSE --mt5-login 12345 --mt5-password yourpass"
+    echo "  curl -sSL https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/install.sh | bash -s -- --license-key YOUR_LICENSE --mt5-login 12345 --mt5-password yourpass"
     exit 0
 }
 
@@ -120,19 +120,19 @@ mkdir -p "$INSTALL_DIR/mt5-custom"
 
 # Download the latest docker-compose.yml and MT5 custom files
 echo "Downloading latest configuration files..."
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/docker-compose.yml > docker-compose.yml
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/gunicorn.conf.py > gunicorn.conf.py
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/wsgi.py > wsgi.py
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/start-production.sh > start-production.sh
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/start-dev.sh > start-dev.sh
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/docker-compose.yml > docker-compose.yml
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/gunicorn.conf.py > gunicorn.conf.py
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/wsgi.py > wsgi.py
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/start-production.sh > start-production.sh
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/start-dev.sh > start-dev.sh
 
 # Make startup scripts executable
 chmod +x start-production.sh start-dev.sh
 
 # Download MT5 custom files
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/mt5-custom/Dockerfile > mt5-custom/Dockerfile
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/mt5-custom/README.md > mt5-custom/README.md
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/mt5-custom/mt5-exness-setup.exe > mt5-custom/mt5-exness-setup.exe
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/mt5-custom/Dockerfile > mt5-custom/Dockerfile
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/mt5-custom/README.md > mt5-custom/README.md
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/mt5-custom/mt5-exness-setup.exe > mt5-custom/mt5-exness-setup.exe
 
 # Create defaults directory and menu.xml
 # echo "Creating defaults directory and menu.xml..."
@@ -467,8 +467,8 @@ echo "Setting up MT5 Container Manager..."
 
 # Download MT5 container manager files
 echo "Downloading MT5 container manager files..."
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/scripts/mt5_container_manager.py > "$INSTALL_DIR/mt5_container_manager.py"
-curl -s https://raw.githubusercontent.com/Akinlua/novak-deployment/refs/heads/main/scripts/mt5-container-manager.service > "$INSTALL_DIR/mt5-container-manager.service"
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/scripts/mt5_container_manager.py > "$INSTALL_DIR/mt5_container_manager.py"
+curl -s https://raw.githubusercontent.com/Akinlua/mbcdeployment/refs/heads/main/scripts/mt5-container-manager.service > "$INSTALL_DIR/mt5-container-manager.service"
 
 # Check if we can install systemd service (requires sudo)
 if command -v systemctl &> /dev/null && [ "$EUID" -eq 0 ]; then
